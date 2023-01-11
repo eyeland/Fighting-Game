@@ -1,8 +1,22 @@
 const canvas = document.querySelector('canvas');
 const c = canvas.getContext('2d');
 
-canvas.width = 1024;
-canvas.height = 576;
+// player 1 on screen controls
+const player1Attack = document.getElementById('player1-attack')
+console.log(player1Attack)
+const player1Left = document.getElementById('player1-left')
+const player1Right = document.getElementById('player1-right')
+const player1Jump = document.getElementById('player1-jump')
+
+//player 2 on screen controls
+const player2Attack = document.getElementById('player2-attack')
+const player2Left = document.getElementById('player2-left')
+const player2Right = document.getElementById('player2-right')
+const player2Jump = document.getElementById('player2-jump')
+
+
+canvas.width = 1024;    //1024
+canvas.height = 576;    //576
 
 c.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -275,7 +289,7 @@ function animate() {
 animate()
 
 window.addEventListener('keydown', (event) => {
-    // console.log(event)
+     //console.log(event)
     if (!player.dead){
     switch(event.key) {
         case 'd':
@@ -289,11 +303,17 @@ window.addEventListener('keydown', (event) => {
         case 'w':
             player.velocity.y = -20
             break
-        case ' ':
+        case ' ' || '200':
             player.attack()
             break;
     }
 }
+    player1Attack.addEventListener('click', (event) => {
+        console.log(event)
+    })
+
+
+
     if (!enemy.dead){
     // player 2
     switch(event.key){
